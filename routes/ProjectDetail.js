@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const controller = require('../controllers/ProjectDetailController')
-const middleware = require('../middleware')
+const controller = require('../controllers/ProjectDetail')
+const middleware = require('../models/middleware')
 
 router.get('/', controller.GetProjectDetails)
 router.get('/project/:projectId', controller.GetProjectDetailsByProject)

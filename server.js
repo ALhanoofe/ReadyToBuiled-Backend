@@ -7,6 +7,7 @@ const cors = require('cors')
 const AuthRouter = require('./routes/AuthRouter')
 
 const ProjectRouter = require('./routes/ProjectRouter')
+const ProjectDetailRouter = require('./routes/ProjectDetail')
 
 
 
@@ -23,11 +24,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 
+app.use('/auth', AuthRouter)
 app.use('/projects', ProjectRouter)
-app.use('/project-details', ProjectDetailRouter)
+app.use('/details', ProjectDetailRouter)
 
 
-app.use('/projects', AuthRouter)
 
 
 
