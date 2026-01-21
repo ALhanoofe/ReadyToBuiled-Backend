@@ -7,6 +7,7 @@ const GetProjectDetails = async (req, res) => {
   } catch (error) {
     throw error
   }
+  
 }
 
 const GetProjectDetailsByProject = async (req, res) => {
