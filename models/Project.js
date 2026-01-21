@@ -6,7 +6,8 @@ const projectSchema = new Schema(
     category: { type: String, required: true },
     image: { type: String },
     type: { type: String },
-    duration: { type: Date }
+    duration: { type: Date },
+    price:{type:number}
   },
   { timestamps: true }
 )
