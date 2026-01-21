@@ -1,5 +1,5 @@
 const { User } = require('../models')
-const middleware = require('../middleware')
+const middleware = require('../models/middleware')
 
 const Register = async (req, res) => {
   try {
