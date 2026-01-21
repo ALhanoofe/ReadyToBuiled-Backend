@@ -24,6 +24,8 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use('/projects', ProjectRouter)
+app.use('/project-details', ProjectDetailRouter)
+
 
 app.use('/projects', AuthRouter)
 
