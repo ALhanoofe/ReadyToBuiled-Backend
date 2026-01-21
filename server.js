@@ -3,6 +3,9 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 
+const AuthRouter = require('./routes/ProjectRouter')
+
+
 
 const db = require('./db')
 
@@ -16,11 +19,15 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+
+app.use('/projects', ProjectRouter)
+
+
 app.get('/', (req, res) => {
   res.send(' API is running')
 })
 
 
 app.listen(PORT, () => {
-  console.log(`Running Express server on Port ${PORT} . . .`)
+
 })
