@@ -3,6 +3,9 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 
+
+const AuthRouter = require('./routes/AuthRouter')
+
 const ProjectRouter = require('./routes/ProjectRouter')
 
 
@@ -21,6 +24,12 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use('/projects', ProjectRouter)
+
+app.use('/projects', AuthRouter)
+
+
+
+
 
 
 app.get('/', (req, res) => {
