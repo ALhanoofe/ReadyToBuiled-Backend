@@ -8,9 +8,9 @@ const RequestSchema = new Schema(
       type: String,
       enum: ["pending", "rejects", "approve"],
       required: true
-    } 
+    }
   },
   { timestamps: true }
 )
 
-module.exports = ProjectDetailSchema
+module.exports = RequestSchema
