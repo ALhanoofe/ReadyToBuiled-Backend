@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+const { Schema } = require("mongoose")
 
 const projectSchema = new Schema(
   {
@@ -7,7 +7,7 @@ const projectSchema = new Schema(
     image: { type: String },
     type: { type: String },
     duration: { type: Date },
-    price:{type:number}
+    price: { type: Number },
   },
   { timestamps: true }
 )
