@@ -7,10 +7,10 @@ const GetProjectDetails = async (req, res) => {
   } catch (error) {
     throw error
   }
-  
+
 }
 
-const GetProjectDetailsByProject = async (req, res) => {
+const GetProjectById = async (req, res) => {
   try {
     const projectDetails = await ProjectDetail.find({
       pname: req.params.projectId
@@ -56,7 +56,7 @@ const DeleteProjectDetail = async (req, res) => {
 
 module.exports = {
   GetProjectDetails,
-  GetProjectDetailsByProject,
+  GetProjectById,
   CreateProjectDetail,
   UpdateProjectDetail,
   DeleteProjectDetail

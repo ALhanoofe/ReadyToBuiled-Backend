@@ -2,11 +2,14 @@ const { Schema } = require("mongoose")
 
 const ProjectDetailSchema = new Schema(
   {
-    pname: { type: Schema.Types.ObjectId, ref: "Project", required: true },
+    name: { type: String, required: true },
+    projectId: { type: Schema.Types.ObjectId, ref: "Project", required: true },
+    userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    description: { type: String, required: true },
     category: { type: String, required: true },
     language: { type: String, required: true },
     image: { type: String },
-    description: { type: String, required: true },
+    status: { type: String },
     price: { type: Number },
   },
   { timestamps: true }

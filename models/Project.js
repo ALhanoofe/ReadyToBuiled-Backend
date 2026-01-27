@@ -3,11 +3,10 @@ const { Schema } = require("mongoose")
 const projectSchema = new Schema(
   {
     pname: { type: String, required: true },
-    category: { type: String, required: true },
-    image: { type: String },
-    type: { type: String },
-    duration: { type: Date },
-    price: { type: Number },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    language: { type: String, required: true },
+    description: { type: String, required: true }
+
   },
   { timestamps: true }
 )
