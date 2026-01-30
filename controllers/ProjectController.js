@@ -13,7 +13,7 @@ const GetProjects = async (req, res) => {
 const GetProjectById = async (req, res) => {
   try {
     const project = await Project.findById(req.params.id)
-    res.status(200).send(projects)
+    res.status(200).send(project)
 
   } catch (error) {
     res.status(200).send(error)
@@ -49,7 +49,7 @@ const UpdateProject = async (req, res) => {
 
 const DeleteProject = async (req, res) => {
   try {
-    await Post.deleteOne({ _id: req.params.id })
+    await Project.deleteOne({ _id: req.params.id })
     res.status(200).send({ msg: 'Post Deleted', id: req.params.id })
   } catch (error) {
     throw error

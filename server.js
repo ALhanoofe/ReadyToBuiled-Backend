@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/auth', AuthRouter)
 app.use('/projects', ProjectRouter)
-app.use('/details', ProjectDetailRouter)
+app.use('/detail', ProjectDetailRouter)
 app.use('/requests', RequestRouter)
 
 
@@ -45,3 +45,4 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
 
 })
+

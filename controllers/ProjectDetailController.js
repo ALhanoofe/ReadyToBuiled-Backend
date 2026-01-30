@@ -10,11 +10,20 @@ const GetProjectDetails = async (req, res) => {
 
 }
 
+const GetProjectDetailByProject = async (req, res) => {
+  try {
+    const projectDetails = await ProjectDetail.find({ projectId: req.params.projectId })
+    res.status(200).send(projectDetails)
+  } catch (error) {
+    res.status(500).send(error)
+  }
+}
+
+
+
 const GetProjectById = async (req, res) => {
   try {
-    const projectDetails = await ProjectDetail.find({
-      pname: req.params.projectId
-    })
+    const projectDetails = await ProjectDetail.findById(req.params.id)
     res.status(200).send(projectDetails)
   } catch (error) {
     res.status(500).send(error)
@@ -57,6 +66,7 @@ const DeleteProjectDetail = async (req, res) => {
 module.exports = {
   GetProjectDetails,
   GetProjectById,
+  GetProjectDetailByProject,
   CreateProjectDetail,
   UpdateProjectDetail,
   DeleteProjectDetail
