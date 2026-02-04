@@ -20,6 +20,18 @@ const GetFolderById = async (req, res) => {
   }
 }
 
+const GetFoldersByUser = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const folders = await Folder.find({ userId });
+
+    res.status(200).send(folders);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
 
 const CreateFolder = async (req, res) => {
   try {
@@ -69,5 +81,6 @@ module.exports = {
   GetFolderById,
   CreateFolder,
   UpdateFolder,
-  DeleteFolder
+  DeleteFolder,
+  GetFoldersByUser  
 }

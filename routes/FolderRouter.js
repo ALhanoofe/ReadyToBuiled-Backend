@@ -2,6 +2,12 @@ const router = require('express').Router()
 const controller = require('../controllers/FolderController')
 const middleware = require('../models/middleware')
 
+router.get(
+  '/user/:userId',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.GetFoldersByUser
+);
 
 router.get('/', controller.GetFolders)
 router.get('/:id', controller.GetFolderById)
@@ -11,3 +17,4 @@ router.put('/:id', middleware.stripToken, middleware.verifyToken, controller.Upd
 
 router.delete('/:id', middleware.stripToken, middleware.verifyToken, controller.DeleteFolder)
 module.exports = router
+
