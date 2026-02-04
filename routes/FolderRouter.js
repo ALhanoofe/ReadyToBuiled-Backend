@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const controller = require('../controllers/ProjectController')
+const controller = require('../controllers/FolderController')
 const middleware = require('../models/middleware')
 
 

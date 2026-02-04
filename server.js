@@ -5,7 +5,7 @@ const cors = require('cors')
 
 
 const AuthRouter = require('./routes/AuthRouter')
-const ProjectRouter = require('./routes/ProjectRouter')
+const FolderRouter = require('./routes/FolderRouter')
 const ProjectDetailRouter = require('./routes/ProjectDetail')
 const RequestRouter = require('./routes/RequestRouter')
 
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use('/auth', AuthRouter)
-app.use('/projects', ProjectRouter)
+app.use('/folders', FolderRouter)
 app.use('/detail', ProjectDetailRouter)
 app.use('/requests', RequestRouter)
 
