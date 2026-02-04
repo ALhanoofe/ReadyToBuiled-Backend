@@ -1,0 +1,13 @@
+const router = require('express').Router()
+const controller = require('../controllers/ProjectController')
+const middleware = require('../models/middleware')
+
+
+router.get('/', controller.GetFolders)
+router.get('/:id', controller.GetFolderById)
+
+router.post('/', middleware.stripToken, middleware.verifyToken, controller.CreateFolder)
+router.put('/:id', middleware.stripToken, middleware.verifyToken, controller.UpdateFolder)
+
+router.delete('/:id', middleware.stripToken, middleware.verifyToken, controller.DeleteFolder)
+module.exports = router

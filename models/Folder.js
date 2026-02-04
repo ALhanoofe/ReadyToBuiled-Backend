@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose")
 
-const projectSchema = new Schema(
+const folderSchema = new Schema(
   {
     pname: { type: String, required: true },
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
@@ -11,4 +11,4 @@ const projectSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = projectSchema
+module.exports = folderSchema

@@ -4,9 +4,30 @@ const middleware = require('../models/middleware')
 
 router.get('/', controller.GetProjectDetails)
 
-router.get('/:projectId', controller.GetProjectDetailByProject)
+
+
+
+
+router.get(
+  '/customers/:id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.GetProjectByIdForCustomer)
+
+router.get(
+  '/developer/:id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.GetProjectByIdForDeveloper)
+
+
+router.get(
+  '/:projectId',
+  controller.GetProjectDetailByProject)
 
 router.get('/:id', controller.GetProjectById)
+
+
 
 
 router.post(

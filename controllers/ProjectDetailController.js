@@ -30,6 +30,36 @@ const GetProjectById = async (req, res) => {
   }
 }
 
+const GetProjectByIdForCustomer = async (req, res) => {
+  try {
+    if (!req.user || req.userType !== "customers") {
+
+      return res.status(403).send({ message: "Access denied" });
+    }
+
+    const projectDetails = await ProjectDetail.find({ userType: "developer" });
+    res.status(200).send(projectDetails);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
+const GetProjectByIdForDeveloper = async (req, res) => {
+  try {
+    if (!req.user || req.userType !== "developer") {
+
+      return res.status(403).send({ message: "Access denied" });
+    }
+
+    const projectDetails = await ProjectDetail.find({ userType: "customers" });
+    res.status(200).send(projectDetails);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+
+
+
 const CreateProjectDetail = async (req, res) => {
   try {
     const projectDetail = await ProjectDetail.create(req.body)
@@ -67,6 +97,8 @@ module.exports = {
   GetProjectDetails,
   GetProjectById,
   GetProjectDetailByProject,
+  GetProjectByIdForCustomer,
+  GetProjectByIdForDeveloper,
   CreateProjectDetail,
   UpdateProjectDetail,
   DeleteProjectDetail

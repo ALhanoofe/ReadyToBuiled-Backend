@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const userSchema =require('./User')
-const projectSchema = require('./Project')
+const projectSchema = require('./Folder')
 const projectDetailSchema = require('./ProjectDetail')
 
 
