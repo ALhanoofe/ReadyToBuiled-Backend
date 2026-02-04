@@ -2,59 +2,23 @@ const { ProjectDetail } = require('../models')
 
 const GetProjectDetails = async (req, res) => {
   try {
-    const projectDetails = await ProjectDetail.find({})
-    res.status(200).send(projectDetails)
+    const projects = await ProjectDetail.find().populate("userId", "userType name")
+    res.status(200).json(projects)
   } catch (error) {
-    throw error
-  }
-
-}
-
-const GetProjectDetailByProject = async (req, res) => {
-  try {
-    const projectDetails = await ProjectDetail.find({ projectId: req.params.projectId })
-    res.status(200).send(projectDetails)
-  } catch (error) {
-    res.status(500).send(error)
+    res.status(500).json({ message: error.message })
   }
 }
 
 
 
-const GetProjectById = async (req, res) => {
+
+
+const GetFolderById = async (req, res) => {
   try {
     const projectDetails = await ProjectDetail.findById(req.params.id)
     res.status(200).send(projectDetails)
   } catch (error) {
     res.status(500).send(error)
-  }
-}
-
-const GetProjectByIdForCustomer = async (req, res) => {
-  try {
-    if (!req.user || req.userType !== "customers") {
-
-      return res.status(403).send({ message: "Access denied" });
-    }
-
-    const projectDetails = await ProjectDetail.find({ userType: "developer" });
-    res.status(200).send(projectDetails);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-}
-
-const GetProjectByIdForDeveloper = async (req, res) => {
-  try {
-    if (!req.user || req.userType !== "developer") {
-
-      return res.status(403).send({ message: "Access denied" });
-    }
-
-    const projectDetails = await ProjectDetail.find({ userType: "customers" });
-    res.status(200).send(projectDetails);
-  } catch (error) {
-    res.status(500).send(error);
   }
 }
 
@@ -95,10 +59,7 @@ const DeleteProjectDetail = async (req, res) => {
 
 module.exports = {
   GetProjectDetails,
-  GetProjectById,
-  GetProjectDetailByProject,
-  GetProjectByIdForCustomer,
-  GetProjectByIdForDeveloper,
+  GetFolderById,
   CreateProjectDetail,
   UpdateProjectDetail,
   DeleteProjectDetail

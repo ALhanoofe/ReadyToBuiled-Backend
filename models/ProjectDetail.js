@@ -3,7 +3,7 @@ const { Schema } = require("mongoose")
 const ProjectDetailSchema = new Schema(
   {
     name: { type: String, required: true },
-    projectId: { type: Schema.Types.ObjectId, ref: "Project" },
+    folderId: { type: Schema.Types.ObjectId, ref: "Folder" },
     userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
     description: { type: String, required: true },
     category: { type: String, required: true },

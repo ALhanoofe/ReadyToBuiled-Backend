@@ -47,7 +47,7 @@ const UpdateFolder = async (req, res) => {
   }
 }
 
-const DeleteFolder  = async (req, res) => {
+const DeleteFolder = async (req, res) => {
   try {
     await Folder.deleteOne({ _id: req.params.id })
     res.status(200).send({ msg: 'Folder Deleted', id: req.params.id })
