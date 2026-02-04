@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
-const userSchema =require('./User')
-const projectSchema = require('./Folder')
+const userSchema = require('./User')
+const folderSchema = require('./Folder')
 const projectDetailSchema = require('./ProjectDetail')
 
 
 
 const User = mongoose.model('User', userSchema)
-const Project = mongoose.model('Project', projectSchema)
+const Folder = mongoose.model('Folder', folderSchema)
 const ProjectDetail = mongoose.model('ProjectDetail', projectDetailSchema)
 
 
@@ -14,7 +14,7 @@ const ProjectDetail = mongoose.model('ProjectDetail', projectDetailSchema)
 
 module.exports = {
   User,
-  Project,
+  Folder,
   ProjectDetail
 
 }
