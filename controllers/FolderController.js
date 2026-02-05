@@ -35,15 +35,17 @@ const GetFoldersByUser = async (req, res) => {
 
 const CreateFolder = async (req, res) => {
   try {
+
     const folderData = {
       ...req.body,
+      userId: res.locals.payload.id
       // image: req.file ? `/uploads/${req.file.filename}` : ''
     }
-
     const folder = await Folder.create(folderData)
     res.status(200).send(folder)
   } catch (error) {
     throw error
+
   }
 }
 
@@ -82,5 +84,5 @@ module.exports = {
   CreateFolder,
   UpdateFolder,
   DeleteFolder,
-  GetFoldersByUser  
+  GetFoldersByUser
 }
