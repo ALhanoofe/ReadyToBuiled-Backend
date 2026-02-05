@@ -13,16 +13,26 @@ const GetProjectDetails = async (req, res) => {
 
 
 
-const GetFolderById = async (req, res) => {
+const GetProjectDetailByFolder = async (req, res) => {
   try {
-    const projectDetails = await ProjectDetail.findById(req.params.id)
-    res.status(200).send(projectDetails)
+    const projectDetail = await ProjectDetail.find({ folderId: req.params.folderId })
+    res.status(200).send(projectDetail)
+  } catch (error) {
+    res.status(500).send(error)
+  }
+
+
+}
+
+const GetProjectDetailById = async (req, res) => {
+  try {
+    const projectDetail = await ProjectDetail.findById(req.params.id)
+    res.status(200).send(projectDetail)
+
   } catch (error) {
     res.status(500).send(error)
   }
 }
-
-
 
 const CreateProjectDetail = async (req, res) => {
   try {
@@ -59,7 +69,8 @@ const DeleteProjectDetail = async (req, res) => {
 
 module.exports = {
   GetProjectDetails,
-  GetFolderById,
+  GetProjectDetailByFolder,
+  GetProjectDetailById,
   CreateProjectDetail,
   UpdateProjectDetail,
   DeleteProjectDetail

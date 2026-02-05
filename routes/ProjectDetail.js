@@ -5,7 +5,9 @@ const middleware = require('../models/middleware')
 router.get('/', controller.GetProjectDetails)
 
 
-router.get('/:id', controller.GetFolderById)
+
+router.get('/folder/:folderId', controller.GetProjectDetailByFolder)
+router.get('/:id', controller.GetProjectDetailById)
 
 router.post(
   '/',
