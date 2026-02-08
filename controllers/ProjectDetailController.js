@@ -41,8 +41,8 @@ const CreateProjectDetail = async (req, res) => {
   try {
     const projectDetailData = {
       ...req.body,
-      userId: res.locals.payload.id
-      // image: req.file ? `/uploads/${req.file.filename}` : ''
+      userId: res.locals.payload.id,
+      image: req.file ? `/uploads/${req.file.filename}` : ''
     }
     const projectDetail = await ProjectDetail.create(projectDetailData)
     res.status(200).send(projectDetail)
