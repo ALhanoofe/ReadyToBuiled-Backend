@@ -56,9 +56,13 @@ const CreateProjectDetail = async (req, res) => {
 
 const UpdateProjectDetail = async (req, res) => {
   try {
+    const updateData = {
+      ...req.body,
+      image: req.file ? `/uploads/${req.file.filename}` : undefined
+    }
     const projectDetail = await ProjectDetail.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      updateData,
       { new: true }
     )
     res.status(200).send(projectDetail)
