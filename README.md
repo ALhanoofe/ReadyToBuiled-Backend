@@ -43,6 +43,7 @@ Protected routes for creating, updating, and deleting content.
 ![img](<Screenshot 2026-02-10 at 9.15.44 pm.png>)
 ![img](<Screenshot 2026-02-10 at 9.16.51 pm-1.png>)
 ![img](<Screenshot 2026-02-10 at 9.16.30 pm-1.png>)
+
 ## Frontend Repository link
 - https://github.com/ALhanoofe/ReadyToBuiled-Frontend
 
@@ -50,13 +51,13 @@ Protected routes for creating, updating, and deleting content.
 - https://readytobuiled-backend.onrender.com
 
 ## Figme link
--
+- https://www.figma.com/site/4Tuzg36tcn8dLm5cvchOJW/Untitled?node-id=0-1&t=FzjmyCqvSpnILjRB-1
 
 ## Hierarchy Diagram
 ![Hierarchy Diagram ]
 
 ## 🧩 ERD (Entity Relationship Diagram)
-
+- ![ERD](<Screenshot 2026-02-11 at 12.47.16 am.png>)
 
 ## 🔮 Future Improvements
 
