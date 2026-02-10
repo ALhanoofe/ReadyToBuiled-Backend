@@ -54,7 +54,7 @@ Protected routes for creating, updating, and deleting content.
 - https://www.figma.com/site/4Tuzg36tcn8dLm5cvchOJW/Untitled?node-id=0-1&t=FzjmyCqvSpnILjRB-1
 
 ## Hierarchy Diagram
-![Hierarchy Diagram ]
+![Hierarchy Diagram](<Screenshot 2026-02-11 at 12.37.50 am.png>)
 
 ## 🧩 ERD (Entity Relationship Diagram)
 - ![ERD](<Screenshot 2026-02-11 at 12.47.16 am.png>)
