@@ -4,9 +4,15 @@ const GetRequestsForUser = async (req, res) => {
   try {
     const { userId } = req.params
 
-    const requests = await Request.find({ developerId: userId })
-      .populate("projectId")
+    const requests = await Request.find({})
       .populate("developerId")
+      .populate({
+        path: "projectId",
+        populate: {
+          path: "userId",
+          model: "User",
+        },
+      })
 
     res.status(200).json(requests)
   } catch (error) {
@@ -14,6 +20,7 @@ const GetRequestsForUser = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 }
+
 
 const UpdateRequestStatus = async (req, res) => {
   try {
@@ -55,6 +62,7 @@ const createRequest = async (req, res) => {
     const request = await Request.create({
       developerId,
       projectId,
+      stats: "pending",
     })
 
     res.status(201).json(request)
